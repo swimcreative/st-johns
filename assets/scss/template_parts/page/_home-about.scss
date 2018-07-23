@@ -1,0 +1,29 @@
+#about {
+  position:relative;
+  @include pad();
+  background-image:url(assets/img/kids2.jpg);
+  @include cover;
+  //@include overlay;
+  .container {
+    max-width:$medium-screen;
+    text-align:center;
+    padding:$base-spacing * 2 $base-spacing;
+    background:rgba(#143470, .7);
+    color:white;
+    .btn {
+      @extend .btn-alt;
+    }
+  }
+  @media #{$mobile} {
+    padding:0;
+    .container {
+      @include pad;
+      @include padding(null $base-spacing);
+    }
+  }
+  h1,h2,h3 {
+    &:first-child {
+      @extend .heading;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+// Banner
+#page #banner {
+  will-change:background-position;
+  //transform:translateZ(0,0,0);
+  overflow:hidden;
+  .calendar-widget {
+    margin-bottom:0;
+    @media #{$tablet} {
+      margin-left:0;
+      margin-right:0;
+    }
+  }
+  background-image:url(assets/img/desk.jpg);
+  .home & {
+    background-image:url(assets/img/color-fade-2.jpg);
+    background-position:center center;
+    //background-position:center 25%;
+    &:before {
+      opacity:.25;
+    }
+  }
+  @include cover;
+  @include overlay(.45);
+	@include pad($small);
+  @media #{$desktop-up} {
+    @include overlay(.3);
+  }
+  background-position:center 30%;
+  @media #{$tablet-up} {
+    padding-top: calc(150px + 17vh);
+    padding-bottom:120px;
+  }
+  @media #{$mobile} {
+    padding:14vh 0 12vh 0 !important;
+  }
+	color:white;
+	@include gradient(#1d2742, .9, top);
+	position:relative;
+	background-color:#aaa;
+  .container {
+    position:static;
+  }
+	.banner-content {
+    max-width:$medium-screen;
+    @include text_shadow;
+		@media #{$mobile} {
+			font-size:.65em;
+		}
+    @media (max-width:480px) {
+      font-size:.5em;
+      small {
+        font-size:.7em !important;
+      }
+    }
+		position:relative;
+		z-index:999;
+		h1 {
+      line-height:.93;
+      @media #{$desktop-up} {
+        font-size:4.2em;
+      }
+			font-size:3.7em;
+      margin-bottom:0;
+			small {
+        font-size:50%;
+        color:#efefef;
+        opacity:.85;
+        display:block;
+        margin-top:.55em;
+				font-weight:200;
+				font-family:'Georgia', serif;
+				font-style:italic;
+        letter-spacing:.01em;
+			}
+		}
+	}
+	.crumbs {
+    .genericon {
+      font-size:1.45em;
+    }
+    font-family:$poppins;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    font-weight:400;
+    font-size:.75em;
+    @media #{$mobile} {
+      font-size:.65em;
+    }
+		position:relative;
+		z-index:999;
+		color:white;
+    a {
+      color:$light-blue;
+      &:hover {
+        color:white;
+      }
+    }
+		padding-top:$base-spacing / 1.5;
+		padding-bottom:$base-spacing / 1.5;
+		position:absolute;
+		bottom:0;
+	}
+  &.hero {
+    padding-bottom:1px !important;
+    .banner-content {
+      @media #{$hd} {
+        font-size:1.3em;
+      }
+    }
+    @media #{$desktop-up} {
+      @include padding(calc(180px + 12vh) null 0 null);
+    }
+    @media #{$xs} {
+      padding-bottom:$base-spacing * 1.6 !important;
+      h1 {
+        font-size:3.4em;
+      }
+    }
+    .banner-content {
+      h1 {
+        margin-bottom:14vh;
+      }
+    }
+  }
+}

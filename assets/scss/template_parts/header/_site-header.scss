@@ -1,0 +1,260 @@
+.site-header {
+  display:flex;
+  background-color:$peri;
+  @media #{$tablet-up} {
+    position:absolute;
+    z-index:9999;
+    left:0;
+    right:0;
+    background:none;
+  }
+  font-family:$poppins;
+   > div {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    @media #{$tablet-up} {
+       background-color:none;
+      //border-bottom: $base-border;
+      }
+    @media #{$mobile} {
+      padding:0;
+    }
+  }
+}
+
+
+// nav support content
+.main-menu > li:nth-child(3) {
+  .sub-menu-content {
+    float:right;
+  }
+  .menu-support {
+        padding-left:$small-spacing;
+  }
+}
+.sub-menu {
+  #menu-item-238 & {
+    .sub-menu-content {
+     width:100%;
+   }
+  .menu-item-has-children {
+      float:left;
+      width:50%;
+    }
+  }
+  .sub-menu-content {
+    float:left;
+    width:50%;
+  }
+  .menu-support {
+    > *:last-child {
+      margin:0;
+      img {
+        border-radius:0;
+        margin:0;
+        display:block;
+      }
+    }
+    padding-right:$small-spacing;
+    float:right;
+    width:50%;
+  }
+}
+
+.main-menu > li:first-child {
+
+  .sub-menu-content {
+    width:30%;
+  }
+  .menu-support {
+    width:70%;
+  }
+
+}
+
+.main-menu.desktop-menu > li:not(:nth-child(2)) {
+  .sub-menu a {
+    //font-size:1.1rem;
+    font-weight:900;
+    text-decoration:underline;
+    &:after {
+      //content:' »';
+    }
+  }
+}
+
+.main-menu.desktop-menu > li:nth-child(2) {
+  .sub-menu-content li.menu-item-has-children:last-child {
+    clear:none !important;
+  }
+  .sub-menu .sub-menu .academics-menu-header {
+    display:none;
+  }
+
+  .sub-menu .sub-menu .sub-menu-content {
+     columns:0 2;
+  }
+
+  > .sub-menu .academics-menu-header {
+    @include clearfix;
+    + ul li {
+      //width:auto;
+      //width:50%;
+      float:left;
+      padding-top:0;
+      padding-bottom:0;
+    }
+    > div {
+      a {
+        opacity:.3;
+        color:$peri;
+        transition: none;
+        &.active,
+        &:hover {
+          opacity:1;
+          color:$blue;
+        }
+      }
+      border-bottom:2px solid #ccc;
+      display:inline-block;
+      vertical-align:bottom;
+      padding-bottom:1em;
+      width:50%;
+      &, a {
+        font-size:1em;
+        font-weight:900;
+      }
+      text-transform:uppercase;
+      &:last-of-type {
+        color:#666;
+      //padding-left:$small-spacing;
+      }
+      &:first-of-type {
+        font-weight:300;
+        width:42%;
+        margin-right:8%;
+      }
+    }
+    padding:$small-spacing;
+    padding-top:8px;
+   + ul > li.menu-item-has-children > a {
+    display:none;
+    + .sub-menu {
+      display:block;
+      }
+    }
+    + ul > li.menu-item-has-children:last-of-type {
+      float:right !important;
+    }
+  }
+  .grades-teachers {
+    li a, + li a {
+      padding-top:6px;
+      font-weight:900;
+      text-decoration:underline;
+      padding-bottom:6px;
+    }
+    + li {
+      .sub-menu {
+        li a {
+          padding-left:0;
+        }
+      //  margin-left:-$small-spacing;
+      }
+    }
+    @include clearfix;
+    width:50%;
+    float:left;
+    clear:none;
+    > li > a {
+      display:none;
+    }
+    li {
+      list-style-type:none;
+    }
+    > li {
+      width:100% !important;
+    }
+    > li:last-child {
+      display:none;
+    }
+  }
+}
+
+//base order
+.custom-logo-link,
+.site-branding,
+.menu-toggle,
+.site-navigation,
+#site-search {
+    order: 1;
+}
+
+@import "site-branding";
+@import "site-navigation";
+@import "nav-fixed";
+@import "site-search";
+@import 'upper-navigation';
+
+
+@media #{$tablet-up} and #{$tablet} {
+  .site-header .custom-logo-link {
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-right:30px;
+  }
+  nav {
+    width:auto;
+    width:100%;
+    margin-left:0;
+  }
+  nav > ul {
+    margin-left:0 !important;
+    justify-content:space-between;
+    > li {
+      &:nth-last-child(2) {
+        margin-right:0;
+      }
+    //  &:not(:first-child) {
+        text-align:center;
+    //  }
+      font-size:1rem;
+      @media (max-width:900px) {
+        font-size:.9rem;
+      }
+      flex:1 0 auto;
+      &:not(.menu-button) > a {
+        padding:12px !important;
+      }
+    }
+    .menu-button {
+      flex:20%;
+      a {
+        float:right;
+        margin-right:8px;
+      }
+      position:relative;
+      top:-2px;
+       a {
+         @media #{$tablet} {
+          padding:15px 25px !important;
+        }
+       }
+    }
+    #site-search {
+      //position:absolute;
+    //  //top:-160%;
+    //  right:0;
+    ///  margin-left:50px;
+      button {
+        padding:5px 0 5px 20px !important;
+      }
+      input {
+        right:40px;
+      }
+    }
+  }
+}

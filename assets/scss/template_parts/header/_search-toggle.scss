@@ -1,0 +1,20 @@
+.search-toggle {
+  /* hover toggle search form */
+  @media #{$tablet-up} {
+    position: relative;
+
+    input {
+      display: none !important;
+      position: absolute;
+      width: auto !important;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:hover input,
+    input:focus {
+       display: block !important;
+    }
+  }
+}

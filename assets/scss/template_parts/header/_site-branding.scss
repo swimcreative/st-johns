@@ -1,0 +1,44 @@
+.site-title,
+.custom-logo-link {
+  transition:opacity $base-timing $base-duration;
+  &:hover {
+    opacity:.85;
+  }
+  img {
+    @media #{$tablet-up} {
+      max-width:200px;
+    }
+    max-width:160px;
+  }
+  display: inline-block;
+  @include margin($base-spacing);
+  @media #{$tablet-up} {
+    @include margin($base-spacing * 2.25 0);
+  }
+  @media #{$xs} {
+    margin-top:15px;
+    margin-bottom:15px;
+    img {
+      max-width:140px;
+    }
+  }
+}
+
+.site-title {
+  //margin-bottom:0;
+  @include font-size(1.5);
+  font-weight: 600;
+}
+
+.site-description {
+  visibility:hidden;
+  color: $medium-gray;
+  @media #{$desktop} {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.custom-logo-link {
+  line-height: 0;
+}

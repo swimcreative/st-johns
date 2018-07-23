@@ -1,0 +1,73 @@
+.site-morefoot {
+  padding-top: $base-spacing;
+  margin-bottom: $base-spacing;
+  margin-right: -($base-spacing);
+  margin-left: -($base-spacing);
+  @media #{$tablet-up} {
+    margin-bottom: $base-spacing;
+  }
+  margin-bottom:0;
+  //border-bottom: $base-border;
+  @media #{$tablet-up} {
+    float:right;
+    width:70%;
+    @media #{$mobile-up} and #{$tablet} {
+      .widget {
+        width:50%;
+      }
+    }
+    @media #{$desktop-up} {
+      .widget {
+        width:25%;
+      }
+    }
+  }
+
+  .footer-widgets {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    @include margin(null auto);
+    max-width: $medium-screen * 2;
+  }
+
+  .widget {
+    &.widget_nav_menu {
+      .widget-title {
+        display:none;
+      }
+    }
+    li {
+      &:first-of-type {
+        a {
+          font-family:'Georgia', serif;
+          font-style:italic;
+          color:$blue;
+          text-decoration:none;
+          font-size:1.3em;
+        }
+        margin-bottom:1.3em;
+      }
+      margin-bottom:.35em;
+      a {
+      font-family:$poppins;
+      color:white;
+      text-decoration:underline;
+      font-size:.88rem;
+      }
+    }
+    @include padding(null $base-spacing $base-spacing);
+    margin-bottom: $base-spacing;
+    flex-basis: 100%;
+    @media #{$mobile-up} {
+      flex:2;
+      flex-basis:50%;
+    }
+    @media #{$tablet-up} {
+      flex: 1;
+      flex-basis: auto;
+    }
+  }
+
+}//.site-contact

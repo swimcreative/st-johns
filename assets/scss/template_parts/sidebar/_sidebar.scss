@@ -1,0 +1,149 @@
+//WIDGETS
+.widget {
+  margin: 0 0 2em;
+  padding: 0 0 2em;
+  @include font-size(1);
+
+  //default widget nav, post & comment lists
+	> ul {
+    @extend .menu;
+
+    ul { //pad submenus
+      //padding-left: 1rem;
+    }
+  }
+
+  li {
+    //@extend .nav-item;
+
+    > a {
+      //@extend .nav-link;
+    }
+  }// > ul
+}
+
+.widget_stjohns_sidenav {
+  strong {
+    font-family:$poppins;
+    color:$peri;
+    a {
+      color:$peri;
+      &:hover {
+        color:$blue;
+      }
+    }
+  }
+  .current_page_item {
+    a {
+      color:$blue !important;
+      &:before {
+        background:$blue !important;
+      }
+    }
+  }
+}
+
+.widget-title {
+	@include font-size(.9);
+  text-transform:uppercase;
+  color: darken($medium-gray, 10%);
+  margin: 0 0 $small-spacing;
+  padding: 0 0 $small-spacing;
+	border-bottom: $base-border; //TODO: bs var this
+}
+
+.page-template-parent-page-template {
+  #secondary .widget-title {
+    color:$peri;
+    filter:hue-rotate(-40deg);
+    border-color:rgba($peri, .4);
+    opacity:.5;
+  }
+}
+#content .widget {
+  ul {
+    font-size:.95rem;
+    font-family:$poppins;
+    li {
+      &.current-menu-item {
+        a {
+          color:$blue;
+          &:before {
+            background:$blue;
+          }
+        }
+      }
+      a {
+        font-size:.9rem;
+        color:$peri;
+        transition:none;
+      }
+      a:hover {
+        color:$blue;
+        &:before {
+          background:$blue;
+        }
+      }
+      a:before {
+        content:"\f442";
+        font-family:genericons;
+        font-size:1.2em;
+        position:relative;
+        top:4px;
+        margin-right:10px;
+        background:$peri;
+        height:25px;
+        padding:2px;
+        font-weight:500;
+        width:25px;
+        border-radius:50%;
+        color:white;
+      }
+      margin-bottom:.45em;
+      .sub-menu {
+        display:none;
+      }
+    }
+  }
+}
+
+
+
+//DEFAULT WIDGETS
+@import "widgets/archive-widget";
+@import "widgets/calendar-widget";
+@import "widgets/comments-widget";
+@import "widgets/posts-widget";
+@import "widgets/tag-widget";
+@import "widgets/text-widget";
+
+//CUSTOM WIDGETS
+.widget_acftheme_sidenav {
+  .menu {
+    > li > .children {
+      padding: 0;
+    }
+  }
+}
+
+.widget_acftheme_contact_info {
+  .custom-logo-link {
+    float:none;
+  }
+}
+
+//POST SIDEBAR TODO: maybe alternate sidebar style options like 3col layout below
+.post-sidebar {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  @include padding(4em);
+
+  .widget {
+    flex: 1 1 33.3333%;
+    @include padding(null 15px);
+  }
+}

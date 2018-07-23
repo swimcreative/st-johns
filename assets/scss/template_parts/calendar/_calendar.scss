@@ -1,0 +1,162 @@
+.calendar-widget {
+  font-family:$poppins;
+  position:relative;
+  .table {
+  @media #{$mobile-up} {
+    margin-bottom:$small-spacing / 1.5;
+  }
+  margin:0;
+  width:auto;
+  table-layout:fixed;
+  tr:last-child td {
+    border:none;
+  }
+  td {
+    @include padding($small-spacing / 1.5 null);
+    border:none;
+  }
+  td:first-child {
+    font-family:$font-stack-system;
+    font-size:.75em;
+    width:auto;
+    > span {
+      position:relative;
+      display:block;
+      background:$blue;
+      //box-shadow:0px 3px 10px rgba(0,0,0,.15);
+      color:white;
+      height:60px;
+      width:60px;
+      text-align:center;
+      > span {
+        line-height:1.2;
+        display:block;
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        transform:translateY(-50%);
+        > span {
+          font-weight:900;
+          display:block;
+          font-size:170%;
+          line-height:1;
+          }
+        }
+      }
+    }
+    td:last-child {
+      text-align:left;
+      font-size:.9rem;
+      padding-left:$base-spacing / 2;
+    }
+  }
+  .hero & {
+    .table {
+      width:100%;
+    }
+    td:first-child > span {
+      background:none;
+      border:2px solid $light-blue;
+    }
+    position:relative;
+    z-index:999;
+    padding-bottom:1px;
+    .widget-title {
+      padding-bottom:.8em;
+      @media #{$mobile-up} {
+        margin-right:175px;
+      }
+      margin-bottom:0;
+      color:white;
+      border-color:rgba(white, .6);
+    }
+    .flickity-slider {
+      margin:0;
+      @include columns(4,4,3,2, 15px);
+      @media #{$mobile} {
+        tr {
+          padding-right:0;
+        }
+      }
+    }
+  }
+  .flickity-nav-wrapper {
+    button {
+      position:static;
+      height:38px;
+      width:38px;
+      background:$light-blue !important;
+      opacity:1;
+      padding:20px;
+      &:nth-child(2) {
+        background:darken($light-blue, 10%) !important;
+      }
+      &[disabled] {
+        background:darken($light-blue, 25%) !important;
+      }
+      svg {
+        path {
+          fill:$peri !important;
+        }
+      }
+      &:not([disabled]):hover {
+        background:lighten($light-blue, 15%) !important;
+      }
+    }
+    position:absolute;
+    right:0;
+    top:0;
+    text-align:right;
+    float:right;
+    width:auto;
+    margin-top:12px;
+  }
+}
+
+.view-all {
+  transition:none;
+  &:hover {
+    color:$light-blue;
+    border-color:$light-blue;
+  }
+  float:right;
+  position:absolute;
+  @media #{$mobile-up} {
+    top:10px;
+    right:96px;
+    left:auto;
+    bottom:auto;
+  }
+  top:auto;
+  bottom:-17px;
+  left:0;
+  right:auto;
+  color:white;
+  font-weight:600;
+  border-bottom:1px solid rgba(white, .7);
+  font-size:.8rem;
+  #content & {
+    right:0;
+    top:0;
+    color:$blue;
+    bottom:auto;
+    left:auto;
+    border-color:$blue;
+    &:hover {
+      color:$peri;
+      border-color:$peri;
+    }
+  }
+  #content .news-widget & {
+    font-family:$poppins;
+  //  top:27px;
+    //right:30px;
+  }
+}
+
+
+.calendar-widget,
+.news-widget {
+  margin-bottom:1em;
+}

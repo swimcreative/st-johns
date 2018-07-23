@@ -1,0 +1,47 @@
+#cta {
+  background:$light-gray;
+  @include pad($small);
+  h4, h5, h6 {
+    @extend .heading;
+    font-family:$poppins;
+    color:darken($medium-gray, 10%);
+    border-color:rgba(#000, .2);
+    font-size:1.4em;
+    clear:both;
+    margin:0 auto;
+    font-weight:300;
+  }
+  text-align:center;
+  .container div {
+    margin-bottom:-.5em;
+    margin-top:$base-spacing;
+  }
+  .btn {
+    margin:.5em 1em;
+    @extend .btn-icon;
+    background:$light-blue;
+    color:$peri;
+    &:hover {
+      background:$blue;
+      color:white;
+    }
+    &:last-of-type {
+    &:before {
+      content:"\f461";
+        font-family:genericons;
+      }
+    }
+    &:nth-of-type(2) {
+      &:before {
+        content:'$';
+        position:relative;
+        top:-6px;
+      }
+    }
+    &:first-of-type {
+      &:before {
+        content: "\f409";
+      }
+    }
+  }
+}

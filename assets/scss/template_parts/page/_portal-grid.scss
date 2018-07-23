@@ -1,0 +1,127 @@
+.page-template-parent-page-template-php {
+  #secondary {
+    > .widget:last-child {
+      padding-bottom:0;
+      margin-bottom:0;
+    }
+  //  background:darken($light-gray, 3%) !important;
+  }
+}
+
+#parent-portal-grid {
+  background:$lightest-blue;
+ + #content #secondary {
+  //background:$light-gray;
+  }
+}
+
+
+#parent-portal-grid {
+  //background:lighten($light-blue, 20%);
+  background:$light-gray;
+  background:#f6f6f6;
+  @include pad(50px);
+  .container {
+    .grid-wrapper {
+      @include columns(4,4,4,2, 30px);
+      @media #{$mobile-up} {
+        flex-direction:row !important;
+      }
+    }
+  }
+  .item {
+    h2 {
+      margin-top:5px;
+      text-transform:uppercase;
+      font-size:1.2em;
+      @media #{$tablet-up} {
+        font-size:1.25em;
+      }
+      color:darken($medium-gray, 15%);
+    }
+    text-align:center;
+    img {
+      max-width:130px;
+    }
+    p {
+      line-height:1.4;
+      font-size:.9em;
+      max-width:240px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    a {
+      display:inline-block;
+      margin:0 .5em;
+      text-decoration:underline;
+      //border-bottom:1px solid $blue;
+      font-family::$poppins;
+      font-weight:500;
+      transition:none;
+      &:hover {
+        border-color:darken($blue, 30%);
+      }
+    }
+  }
+}
+
+#announcement {
+  @include headings {
+    &:first-of-type {
+      @extend .heading;
+    }
+  }
+  .container > *:only-child {
+    text-align:center;
+    margin:0 auto;
+    max-width:700px;
+    flex-basis:700px;
+    width:100%;
+  }
+  @include bg_pattern(50px);
+  background:$blue;
+  @include pad();
+  color:white;
+  .container {
+    flex-direction:row !important;
+    align-items:center;
+    @media #{$tablet-up} {
+      display:flex;
+      div,
+      img {
+        height:100%;
+        flex-basis:50%;
+        width:50%;
+        padding-top:0 !important;
+      }
+      div {
+        padding-left:$base-spacing;
+      }
+      img {
+        border:10px solid white;
+        margin-right:$base-spacing;
+        box-shadow:0px 10px 20px rgba(0,0,0,.3);
+      }
+    }
+    div {
+      padding-left:$base-spacing;
+      a {
+        color:white;
+        font-style:italic;
+        text-decoration:underline;
+        font-weight:600;
+        &:hover {
+          color:darken($lightest-blue, 8%);
+        }
+      }
+    }
+    @media #{$tablet} {
+      flex-direction:column;
+      div {
+        padding-left:0;
+        padding-top:$base-spacing;
+      }
+    }
+    max-width:$large-screen;
+  }
+}

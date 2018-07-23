@@ -1,0 +1,71 @@
+.site-footer {
+  overflow:hidden;
+  position:relative;
+  //@include bg_pattern(70px);
+  @include padding($base-spacing * 4 null);
+  //border-top: $base-border;
+  @include font-size(.875);
+  background-color:$peri;
+  color:white;
+  //back to top link
+  .top-link {
+    @include padding($base-spacing null);
+    float: right;
+  }
+  .footer-bg-image {
+    position:absolute;
+    right:-180px;
+    bottom:-150px;
+    opacity:.05;
+    width:650px;
+
+  }
+}
+
+#footer-bottom {
+  ul.menu:not(#menu-lower-footer-menu-1) {
+    clear:both;
+    padding:0;
+    li {
+      float:left;
+      margin-right:2em;
+      font-size:1.2rem;
+      font-weight:300;
+      font-family:$poppins;
+    }
+    @media #{$desktop-up} {
+      clear:none;
+      float:right;
+      li {
+        margin-left:2em;
+        margin-right:0;
+      }
+    }
+  }
+  a {
+    color:$medium-gray;
+  }
+  @include pad($small);
+  padding-bottom:3vh;
+  @media #{$tablet} {
+    padding-bottom:30px;
+  }
+  background-image:url(assets/img/footer-bottom-bg.jpg);
+  @include cover;
+  color:$medium-gray;
+  h5 {
+    font-weight:500;
+    font-style:italic;
+    font-family:'Georgia', serif;
+  }
+  .menu-secondary-navigation-container {
+    a:hover {
+      color:$blue;
+    }
+  }
+}
+
+@import "site-contact";
+@import "site-info";
+@import "site-social";
+@import "site-morefoot";

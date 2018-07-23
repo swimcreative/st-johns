@@ -1,0 +1,60 @@
+//page titles
+.page .entry-title,
+.page-title {
+  //
+}
+
+.page-title {
+  margin: $small-spacing 0 0;
+		@media #{$tablet-up} {
+      @include font-size(3);
+    }
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.entry-content img {
+	margin-bottom:0;
+}
+
+
+#page {
+  #content .container > .row {
+    align-items:stretch;
+  }
+ #content, > section {
+  // @include pad;
+  }
+  > footer {
+    @include pad($small);
+  }
+}
+
+.gallery-item {
+	&:hover {
+		opacity:.88;
+	}
+}
+
+body.page {
+  .entry-header {
+    display:none;
+  }
+}
+
+.error404, .search {
+  .banner-content small + small {
+    display:none !important;
+  }
+  .widget {
+    margin-top:3em;
+  }
+}
+
+@import 'portal-grid';
+@import 'home-about';
+@import 'home-cta';
+@import '../news/news';

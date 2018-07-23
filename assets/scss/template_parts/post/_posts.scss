@@ -1,0 +1,162 @@
+//posts
+.hentry {
+	margin-bottom: $base-spacing;
+  padding-bottom: $base-spacing;
+
+  &.post {
+    border-bottom: $base-border;
+  }
+
+  &.sticky {
+  	display: block;
+  }
+}
+
+.entry-header {
+  margin-bottom: $base-spacing;
+
+  .single &,
+	.page & {
+    /*  overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column; */
+  }
+
+  .single.has-post-thumbnail .hentry > &,
+	.page.has-post-thumbnail .hentry > & {
+      background-position: center;
+      background-size: cover;
+      //color: white;
+      //add overlay for text/bkgd image readability
+      .entry-title,
+      .cat-link,
+      .entry-meta {
+        position: relative;
+        z-index: 1;
+      }
+			.entry-title {
+			}
+    }
+}//entry-header
+
+#wp-comment-cookies-consent {
+	float:left;
+	position:relative;
+	top:6px;
+}
+
+.entry-title {
+  margin: $small-spacing / 2 0 0;
+
+  .single & {
+    @include padding(null 15px);
+    text-align: left;
+    @media #{$tablet-up} {
+      @include font-size(2.5);
+    }
+  }
+
+	.page &:not(h3) {
+		//text-align: center;
+		@media #{$tablet-up} {
+      @include font-size(4);
+    }
+	}
+}
+
+.cat-link {
+  @extend .btn;
+  padding: $small-spacing * .75;
+  @include font-size(.75);
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single-post article .entry-header {
+	display:none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.single-post #page {
+	#banner {
+		.banner-content {
+			max-width:$large-screen - 200px;
+			h1 {
+				font-size:3.5em;
+				line-height:1;
+			}
+		}
+	}
+}
+
+.page-content,
+.entry-content,
+.entry-summary,
+.widget-area {
+	li {
+		margin-bottom:5px;
+	}
+	ul, ol {
+		padding-left:1em;
+		margin-bottom:2em;
+	}
+	.widget ul {
+		padding-left:0;
+	}
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	li {
+		margin-bottom:5px;
+	}
+	@include headings {
+		font-weight:bold;
+	}
+	margin: 0 0 $base-spacing;
+	margin-bottom:0;
+	a {
+		text-decoration:underline;
+		font-weight:600;
+	}
+	a.btn {
+		text-decoration:none;
+	}
+}
+
+.entry-meta {
+	margin-top:10px !important;
+}
+
+//meta
+.entry-meta,
+.entry-footer,
+.comment-metadata,
+.logged-in-as,
+.comment-notes {
+  @include font-size(.875);
+
+  span[class*="link"] {
+    display: block;
+    margin-bottom: $small-spacing;
+  }
+
+  a:not(.btn) {
+    color: inherit;
+  }
+
+  .single & {
+    @include margin($base-spacing null);
+  }
+}//.entry-meta, etc

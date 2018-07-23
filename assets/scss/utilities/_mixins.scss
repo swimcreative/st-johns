@@ -1,0 +1,266 @@
+//FUNCTIONS
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-units($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+//MIXINS
+// Rem output with px fallback
+@mixin font-size($size-value: 1) {
+	font-size: ($size-value * strip-units($base-font-size)) * 1px;
+	font-size: $size-value * 1rem;
+}
+
+@mixin container {
+  @include margin(null auto);
+  @include padding(null $small-spacing);
+
+  @media #{$tablet-up} {
+    max-width: $medium-screen;
+  }
+}
+
+//TEMP
+
+$spacing: 20px;
+
+@mixin outer {
+  //background: blue;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  @include padding($spacing null);
+}
+
+@mixin inner {
+  //background: green;
+  flex: 0 1 100%;
+  @include margin(null auto);
+  padding: $spacing $spacing / 2;
+
+  @media #{$tablet} {
+    flex-basis: $medium-screen;
+    max-width: $medium-screen;
+    padding: $spacing * 1.5 $spacing * 2;
+  }
+
+  @media #{$desktop} {
+    flex-basis: $large-screen;
+    max-width: $large-screen;
+    padding: $spacing * 2 $spacing * 3;
+  }
+}
+
+@mixin contents {
+  //background: red;
+  @include margin(null auto);
+  @include padding(1px null);
+  position: relative;
+
+  //smaller widget for readability
+  @media #{$desktop} {
+    //width: 83.3333%;
+  }
+}
+
+
+// Responsive pad
+$base-measure: 19vh; // medium size
+$small: $base-measure / 2;
+$medium: $base-measure;
+$large: $base-measure * 2;
+$xl: $base-measure * 2.75;
+
+@mixin pad($value: $medium) {
+  @include padding($value null);
+  @media #{$mobile} {
+    @include padding($value / 1.5 null);
+  }
+}
+
+@mixin marge($value: $medium) {
+  @include margin($value null);
+  @media #{$mobile} {
+    @include margin($value / 1.5 null);
+  }
+}
+
+@mixin text_shadow {
+  text-shadow:0px 0px 9px rgba(0,0,0,.35);
+}
+
+@mixin headings {
+  h1,h2,h3,h4,h5,h6 {
+    @content;
+  }
+}
+
+@mixin caret {
+  &:after {
+    content:'>';
+    color:inherit;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:10px;
+    font-size:1.3em;
+    transform:rotate(90deg);
+    color:$light-blue;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content:'';
+    clear:both;
+    display:table;
+  }
+}
+
+@mixin vert {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+//COVER
+@mixin cover {
+  background-size:cover;
+  background-position:center center;
+}
+
+// OVERLAY
+@mixin overlay($opac: .3) {
+  position:relative;
+  > * {
+    position:relative;
+    z-index:999;
+  }
+  &:before {
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#000;
+    opacity: $opac;
+    z-index:99;
+  }
+}
+
+@mixin bg_pattern($size: 100px) {
+  position:relative;
+  > * {
+    position:relative;
+    z-index:999;
+  }
+  &:before {
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    opacity: .35;
+    background-image:url(assets/img/pattern.png);
+    background-position:center center;
+    background-size:$size;
+    z-index:99;
+  }
+}
+
+// pseudo width
+@mixin pseudo_width($color: inherit) {
+  position:relative;
+  &:before,
+  &:after {
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:100vw;
+    background:$color;
+    display:block;
+    z-index:99;
+  }
+  &:before {
+    right:100%;
+  }
+  &:after {
+    left:100%;
+  }
+}
+
+
+@mixin gradient($color:#000, $o: .5, $dir:right) {
+  &:after {
+    content:'';
+    background:#ccc;
+    opacity:$o;
+    position:absolute;
+    right:0;
+    left:0;
+    top:50%;
+    bottom:0;
+    z-index:99;
+    display:block;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+55,000000+100&0.89+37,0+100 */
+    background: -moz-linear-gradient($dir, rgba($color, .99) 17%, rgba($color,.64) 45%, rgba($color, 0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient($dir, rgba($color, .99) 17%,rgba($color, 0.64) 45%,rgba($color, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to $dir, rgba($color, .99) 17%,rgba($color, 0.64) 45%,rgba($color, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+  }
+}
+
+
+//* GRID COLUMNS MIXIN *//
+// apply this to the parent of the grid items
+// args: (items across) HD, Large screen, medium screen, small screen, item spacing
+@mixin columns($gxl: 4, $gl: 3, $gm: 2, $gs: 1, $space: $base-spacing) {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:top;
+  margin-left:-$space;
+  margin-right:-$space;
+  justify-content:left;
+  @media #{$mobile} {
+    flex-direction:column;
+  }
+  > * { // the grid item
+  padding:$space;
+  @media #{$hd} {
+    width:calc(100% / #{$gxl});
+    flex-basis:calc(100% /#{$gxl});
+    max-width:calc(100% / #{$gxl});
+  }
+  @media #{$desktop} {
+    width:calc(100% / #{$gl});
+    flex-basis:calc(100% / #{$gl});
+    max-width:calc(100% / #{$gl});
+  }
+  @media #{$tablet} {
+    width:calc(100% / #{$gm});
+    max-width:calc(100% / #{$gm});
+    flex-basis:calc(100% / #{$gm});
+  }
+  @media #{$mobile} {
+    width:calc(100% / #{$gs});
+    max-width:calc(100% / #{$gs});
+    flex-basis:calc(100% / #{$gs});
+  }
+  @media #{$xs} {
+    width:100%;
+    max-width:100%;
+    flex-basis:100%;
+    }
+  }
+}

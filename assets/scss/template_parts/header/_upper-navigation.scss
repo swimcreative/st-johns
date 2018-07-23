@@ -1,0 +1,117 @@
+#page #upper-head {
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  font-family:$poppins;
+  @include padding($small-spacing / 2.5 null $small-spacing / 3 null);
+  background:$peri;
+  font-size:.8em;
+  .container {
+    color:white;
+    a {
+      color:$light-blue;
+    }
+    a.btn {
+      font-size:.8rem;
+      text-transform:none;
+      @media #{$xs} {
+        min-width:1px;
+        padding:$small-spacing / 2;
+      }
+    }
+  }
+  @media #{$mobile} {
+    @media #{$xs} {
+      .menu-multisite-navigation-container {
+        font-size:12px;
+      }
+    }
+    #menu-secondary-navigation li:not(.menu-button) {
+      display:none;
+    }
+    @include padding($base-spacing / 2 null);
+    background:$medium-blue;
+    color:$peri;
+  }
+}
+
+#upper-head {
+  @include clearfix;
+  .container {
+    li:not(.menu-button) a {
+      padding:0;
+    }
+    a:hover {
+      color:white !important;
+    }
+    display:flex;
+    align-items:center;
+   > div {
+     font-size:.9em;
+    &:last-of-type {
+      margin-left:auto;
+      li {
+        &:nth-last-child(3),
+        &:nth-last-child(2) {
+          &:after {
+            content:none;
+          }
+        }
+
+      }
+    }
+    li {
+      &:after {
+        content:'•';
+        font-family:$font-stack-system;
+        margin:0 4px 0 9px;
+      }
+      &:last-child {
+        &:after {
+          content:none;
+        }
+      }
+    display:inline-block;
+    vertical-align:middle;
+     &.menu-button {
+        a {
+          padding:$small-spacing / 2 $small-spacing;
+        }
+       &:nth-last-child(2) {
+         @media #{$mobile} {
+           display:none;
+         }
+       }
+       &:last-of-type {
+         @media #{$tablet-up} {
+           display:none;
+         }
+       }
+       margin-left:1em;
+      a[href*='donat'] {
+        @extend .btn-icon;
+        @extend .btn-alt;
+        &:hover {
+          color:$blue !important;
+          border-color:transparent !important;
+        }
+      //  }
+        &:before {
+          content:'\f461';
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#page #upper-head .btn {
+  @media #{$mobile} {
+    color:$peri !important;
+    background:$light-blue !important;
+    border:none !important;
+    &:before {
+      content:none;
+    }
+  }
+}

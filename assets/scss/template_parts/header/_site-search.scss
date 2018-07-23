@@ -1,0 +1,83 @@
+//BASE WP SEARCH
+.search-form {
+  position:relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  > label {
+    margin-bottom: 0;
+    flex: auto;
+    font-weight: normal;
+  }
+}//.search-form
+
+body .search-field {
+  width: 100% !important;
+  margin:0;
+  #masthead & {
+    @media #{$tablet-up} {
+      min-width:300px;
+    }
+  }
+  text-indent:7px;
+}//.search-form-input
+
+#masthead .search-field {
+  //min-width:300px;
+}
+
+.search-submit {
+  position:absolute;
+  right:0;
+  top:50%;
+  font-weight:bold;
+  transform:translateY(-50%);
+  color:$action-color;
+  padding: .5em;
+  background-color: transparent !important;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $medium-gray;
+    outline:none;
+  }
+  @media #{$tablet-up} {
+    color: $action-color;
+    &:hover,
+    &:focus,
+    &:active {
+      //color: shade($action-color,2);
+    }
+  };
+
+  .genericon {
+    @include font-size(1.5);
+  }
+}//.search-form-submit
+
+#site-search {
+  background-color: transparent;
+  @include margin($small-spacing);
+  @media #{$tablet-up} {
+    margin:0 0 0 auto;
+    .search-submit {
+      @include padding($base-spacing);
+      .site-header & {
+        @media #{$tablet-up} {
+          padding-left:15px;
+          color:white;
+          position:relative;
+          top:0;
+          transform:none;
+          &:hover {
+            color:$light-blue;
+          }
+        }
+         padding-right:0;
+       }
+    }
+  }
+}
+
+@import 'search-toggle';
