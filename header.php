@@ -31,7 +31,7 @@
 			  $blog_id = get_current_blog_id();
 		   	if ( 1 == $blog_id ) : ?>
 					<style>
-					.site-1 a {
+					.site-id-1 .menu-multisite-navigation-container li:first-child a {
 						color:white !important;
 						border-bottom:1px solid white;
 						pointer-events:none;
@@ -42,7 +42,7 @@
 					</style>
 	 		<?php else :  ?>
 				<style>
-				.site-2 a {
+				.site-id-2 .menu-multisite-navigation-container  li:last-child a {
 					color:white !important;
 					border-bottom:1px solid white;
 					pointer-events:none;

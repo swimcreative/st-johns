@@ -54,6 +54,82 @@ body.page {
   }
 }
 
+.prayer-list hr:last-of-type {
+  display:none;
+}
+
+.simcal-day {
+  border:1px solid #ccc;
+}
+
+// calendar
+
+.simcal-calendar-grid {
+  margin-top:0;
+}
+.simcal-calendar .simcal-calendar-head {
+  border-bottom:2px solid white;
+}
+
+.simcal-calendar .simcal-calendar-head * {
+  border:none !important;
+  th {
+    //border:1px solid white !important;
+  }
+}
+
+#page .gform_wrapper {
+  margin-top:0;
+}
+
+.simcal-week-day {
+  background:$blue;
+  border:none;
+  font-family:$poppins;
+  color:white;
+}
+
+#page .simcal-nav-button {
+  padding:20px;
+  border-radius:50% !important;
+  background:$blue;
+  color:white;
+  height:50px;
+  width:50px;
+  i {
+    position:relative;
+    top:-3px;
+    right:7px;
+  }
+  &:hover {
+    margin:0 !important;
+    background:lighten($blue, 5%);
+  }
+  &.simcal-next {
+    float:right;
+    i {
+      right:6px;
+    }
+  }
+  &.simcal-prev {
+    float:left;
+    i {
+      right:9px;
+    }
+  }
+}
+
+
+.simcal-day-has-events .simcal-day-label {
+  background:$blue !important;
+//  border-left:1px solid white;
+  //border-right:1px solid white;
+}
+
+.simcal-event-title {
+  font-family:$poppins;
+}
+
 @import 'portal-grid';
 @import 'home-about';
 @import 'home-cta';

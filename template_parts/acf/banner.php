@@ -43,7 +43,7 @@
 
         else :
 
-        echo 'News &amp Bulletins';
+        echo 'News + Bulletins';
 
         endif;
 
@@ -69,7 +69,18 @@
 
     <?php if(is_front_page()) :
 
+      $blog_id = get_current_blog_id();
+
+      if ( 1 == $blog_id ) :
+
       $id = array('stjohnschoolchurch@gmail.com','p2g5ltakbpnuctkql5gb6bgsrk@group.calendar.google.com');
+
+      else :
+
+      $id = 'gta4795vc1eaj2ld49k9ata6d4@group.calendar.google.com';
+
+      endif;
+
       $num = 12;
 
       swim_calendar_widget($id, $num);

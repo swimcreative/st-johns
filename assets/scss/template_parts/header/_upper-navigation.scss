@@ -87,16 +87,20 @@
          }
        }
        margin-left:1em;
-      a[href*='donat'] {
-        @extend .btn-icon;
+      a[href*='donat'], a[href*='calendar'] {
+        body:not(.site-id-2) & {
+          @extend .btn-icon;
+        }
         @extend .btn-alt;
         &:hover {
           color:$blue !important;
           border-color:transparent !important;
         }
       //  }
-        &:before {
-          content:'\f461';
+        body:not(.site-id-2) & {
+          &:before {
+            content:'\f461';
+              }
             }
           }
         }

@@ -87,15 +87,22 @@
     align-items:center;
     @media #{$tablet-up} {
       display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      img {
+        max-width:250px;
+      }
       div,
       img {
         height:100%;
-        flex-basis:50%;
-        width:50%;
+        flex-basis:30%;
+        width:30%;
         padding-top:0 !important;
       }
       div {
         padding-left:$base-spacing;
+        flex-basis:70%;
+        width:70%
       }
       img {
         border:10px solid white;
@@ -123,5 +130,6 @@
       }
     }
     max-width:$large-screen;
+    max-width:$medium-screen + 100px;
   }
 }

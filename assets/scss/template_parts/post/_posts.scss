@@ -67,6 +67,10 @@
 	}
 }
 
+.single-post #secondary {
+	display:none;
+}
+
 .cat-link {
   @extend .btn;
   padding: $small-spacing * .75;

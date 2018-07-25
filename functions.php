@@ -73,7 +73,10 @@ if ( class_exists( 'acf' ) ) {
 /**
  * Custom post types & taxonomies
  */
-if ( class_exists( 'CPT' ) ) {
+
+ $blog_id = get_current_blog_id();
+
+if ( class_exists( 'CPT' ) &&  1 == $blog_id  ) { // only have prayers on school site
   //cpt
   $work = new CPT(
     array(
@@ -137,4 +140,15 @@ function get_excerpt($limit, $source = null){
     $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
     $excerpt = $excerpt.'...';
     return $excerpt;
+}
+
+
+// Add site-id class to body functions.php
+add_filter('body_class', 'multisite_body_classes');
+
+function multisite_body_classes($classes) {
+
+        $id = get_current_blog_id();
+        $classes[] = 'site-id-'.$id;
+        return $classes;
 }

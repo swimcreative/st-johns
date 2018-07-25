@@ -596,7 +596,7 @@ stjohns.parallax = function() {
 
 
 stjohns.fidVids = function() {
-  $(".jetpack-video-wrapper").fitVids();
+  $("iframe").parent().fitVids();
 }
 
 

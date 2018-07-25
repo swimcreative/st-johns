@@ -11,6 +11,9 @@
     }
   }
   background-image:url(assets/img/desk.jpg);
+  .site-id-2:not(.home) & {
+    background-image:url(assets/img/church-default.jpg);
+  }
   .home & {
     background-image:url(assets/img/color-fade-2.jpg);
     background-position:center center;
@@ -41,13 +44,29 @@
     position:static;
   }
 	.banner-content {
-    max-width:$medium-screen;
+    .site-id-2 & {
+      @media #{$tablet-up} {
+        padding:$base-spacing 0;
+      }
+    }
+    p {
+      margin-top:10px;
+      max-width:620px;
+      font-size:1.5em;
+      @media #{$mobile} {
+        font-size:24px;
+      }
+      line-height:1.2;
+      font-style:italic;
+      color:#dfdfdf;
+    }
+    max-width:850px;
     @include text_shadow;
 		@media #{$mobile} {
 			font-size:.65em;
 		}
     @media (max-width:480px) {
-      font-size:.5em;
+      font-size:.6em;
       small {
         font-size:.7em !important;
       }
@@ -55,6 +74,12 @@
 		position:relative;
 		z-index:999;
 		h1 {
+      // multisite tweak
+      .site-id-2.home & {
+        @media #{$mobile} {
+          font-size:3rem;
+        }
+      }
       line-height:.93;
       @media #{$desktop-up} {
         font-size:4.2em;
@@ -117,9 +142,9 @@
       }
     }
     .banner-content {
-      h1 {
+    //  h1 {
         margin-bottom:14vh;
-      }
+    //  }
     }
   }
 }

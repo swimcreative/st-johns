@@ -40,4 +40,15 @@ if($posts) : global $post; ?>
 <!--<a class="btn" href="/news">All News</a> -->
 </div>
 
+<?php else : ?>
+
+  <div class="news-widget">
+  <h2 class="widget-title">News &amp; Bulletins</h2>
+  <table class="news table">
+    Check back soon for upcoming news & bulletins!
+
+  </table>
+</div>
+</div>
+
 <?php endif; ?>

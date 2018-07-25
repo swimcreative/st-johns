@@ -75,12 +75,10 @@ function stjohns_prayers( $type ) {
   ), $type));
 
   $grade = $type['grade'];
-  
+
   ob_start();
   include get_stylesheet_directory().'/template_parts/page/prayers.php';
   return ob_get_clean();
 
 }
-
-
 add_shortcode( 'prayers', 'stjohns_prayers' );

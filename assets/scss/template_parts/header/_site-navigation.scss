@@ -342,6 +342,22 @@
   }
 }
 
+
+// SITE 2 NAV FIX
+
+.site-id-2 #primary-nav > .main-menu li:nth-child(2) li:not(.menu-button) a {
+  @media #{$tablet-up} {
+    font-weight:700;
+    text-decoratioN:underline;
+  }
+}
+
+.site-id-2 #primary-nav > .main-menu li:nth-child(2) li.menu-button {
+  margin-left:20px;
+  font-size:20px;
+  margin-top:5px;
+}
+
 @import 'nav-right';
 @import 'nav-left';
 @import 'nav-center';

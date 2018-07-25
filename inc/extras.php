@@ -106,6 +106,9 @@
          if( $args->menu == 'header-academics') {
             $output .= include get_stylesheet_directory().'/template_parts/nav/academics.php';
          }
+         if( $args->menu == 'header-faith-formation') {
+            $output .= include get_stylesheet_directory().'/template_parts/nav/academics.php';
+         }
          $output .= "<ul class='sub-menu-content'>{$n}";
      }
 

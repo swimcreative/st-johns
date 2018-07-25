@@ -20,10 +20,12 @@
 		a {
 			display: block;
 			white-space:normal !important;
+			padding:15px !important;
 		}
 	}//nav-*
 
 	.nav-previous {
+				border-right:5px solid white;
 	  //margin-right: $small-spacing;
 		a {
 			text-align:left !important;
