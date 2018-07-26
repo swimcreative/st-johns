@@ -18,7 +18,7 @@ body {
 }
 
 .site {
-  //overflow: hidden;
+  overflow-x: hidden;
 }
 
 body.page-template-fullwidth {
@@ -280,6 +280,13 @@ body:not(.page-template-parent-page-template):not(.home) {
       padding-right:0 !important;
       @include pseudo_width;
     }
+  }
+}
+
+.page-template-fullwidth-page {
+  #primary {
+    max-width:$large-screen - 130px;
+    margin:0 auto;
   }
 }
 
