@@ -89,6 +89,7 @@ body.page {
     padding-right:0;
   }
   #secondary {
+    float:left;
     @include pseudo_width;
     background:$lightest-blue;
     &:after {

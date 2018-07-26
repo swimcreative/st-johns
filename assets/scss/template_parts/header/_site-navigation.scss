@@ -89,7 +89,7 @@
     }
     @media #{$tablet-up} {
         flex-basis: auto;
-        display: block !important;
+        display: inline-block !important;
         background-color: transparent;
         padding: 0;
     }
@@ -330,6 +330,10 @@
   .desktop-menu {
     display:none !important;
   }
+}
+
+.site-branding {
+  display:none;
 }
 
 .desktop-menu > li:not(.menu-button) > a {

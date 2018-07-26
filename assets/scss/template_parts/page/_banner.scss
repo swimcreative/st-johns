@@ -19,7 +19,7 @@
     background-position:center center;
     //background-position:center 25%;
     &:before {
-      opacity:.25;
+      opacity:.15;
     }
   }
   @include cover;
@@ -68,7 +68,7 @@
     @media (max-width:480px) {
       font-size:.6em;
       small {
-        font-size:.7em !important;
+        font-size:.6em !important;
       }
     }
 		position:relative;
@@ -78,6 +78,11 @@
       .site-id-2.home & {
         @media #{$mobile} {
           font-size:3rem;
+        }
+      }
+      .site-id-1.home & {
+        @media #{$mobile} {
+          font-size:2.35rem;
         }
       }
       line-height:.93;

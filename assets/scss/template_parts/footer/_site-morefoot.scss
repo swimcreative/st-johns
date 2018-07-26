@@ -33,6 +33,9 @@
   }
 
   .widget {
+    @media #{$mobile-up} {
+      float:left;
+    }
     &.widget_nav_menu {
       .widget-title {
         display:none;

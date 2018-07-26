@@ -88,7 +88,8 @@ if ( class_exists( 'CPT' ) &&  1 == $blog_id  ) { // only have prayers on school
     array(
       'supports' => array('title', 'editor', 'thumbnail'),
       'menu_icon' => 'dashicons-book-alt',
-      'publicly_queryable' => false
+      'publicly_queryable' => false,
+      'exclude_from_search' => true, 
     )
   );
 
