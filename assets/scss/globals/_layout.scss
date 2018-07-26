@@ -18,7 +18,7 @@ body {
 }
 
 .site {
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 body.page-template-fullwidth {
@@ -108,12 +108,21 @@ body.page {
 }
 
 
+.page-id-121 #page #content > .container {
+
+  .row {
+
+  }
+
+}
+
+
 
 // PARENT PORTAL TEMPLATE
 .page {
   #page {
   #content {
-    overflow:hidden;
+    //overflow:hidden;
    > .container > .row {
     flex-direction:row;
     align-items:flex-start;
@@ -164,9 +173,9 @@ body.page {
         z-index:99;
       }
       &:before {
-        right:0;
-        bottom:-200vh;
-        z-index:1;
+      //  right:0;
+        //ottom:-200vh;
+        //z-index:1;
       }
       flex:0 0 300px;
       }

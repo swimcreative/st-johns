@@ -251,40 +251,15 @@ jQuery(function($) {
     }, 850,  'easeInOutQuint');
    }
 
-   // click event on anchor tag
-   anchor.on('click', function(e){
-     // ignore redirecting links
-     if(anchor.hasClass('redirect')) {
-       // do nothing
-     } else {
-
-     e.preventDefault();
-     currLink = $(this);
-     refElement = $(currLink.attr("href"));
-     // keep the focused/active class for a bit while it scrolls
-     setTimeout(function(){ headerLink.blur(); }, 1000);
-     if(page.find(refElement).length >= 1) {
-       animateScroll(refElement);
-     } else {
-       return false;
-       }
-   } // endif redirect
-   });
 
    // if arrived from other page
   hash = window.location.hash;
-  if(hash && $('body').hasClass('home')) {
+  //if(hash && $('body').hasClass('home')) {
   if(page.find(hash).length >= 1) {
     animateScroll(hash);
    }
-  }
-  // anchor tags that redirect to homepage
-  header.find(anchor).each(function() {
-    var link = $(this).attr('href');
-    if(page.find(link).length == 0) {
-      $(this).attr("href", '/' +link ).addClass('redirect');
-    }
-   });
+  //}
+
  }
 
 
