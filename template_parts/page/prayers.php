@@ -37,8 +37,8 @@ if ( $query->have_posts() ) {
 	echo '<div class="prayer-list"><ul>';
 	while ( $query->have_posts() ) {
 	$query->the_post();
-
-	echo '<li>'.get_the_title().'</li>';
+	global $post;
+	echo '<li><a href="/academics/prayers-religion#'.$post->post_name.'">'.get_the_title().'</a></li>';
 
 	}
 	echo '</ul></div>';
@@ -54,9 +54,11 @@ else :
 		echo '<div class="prayer-list">';
 		while ( $query->have_posts() ) {
 		$query->the_post();
-
+		global $post;
+		echo '<section id="'.$post->post_name.'">';
 		echo '<h3>'.get_the_title().'</h3>';
 		echo get_the_content();
+		echo '</section>';
 		echo '<hr>';
 
 		}
