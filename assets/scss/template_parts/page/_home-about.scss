@@ -5,7 +5,7 @@
   @include cover;
   //@include overlay;
   .container {
-    max-width:$medium-screen;
+    max-width:800px;
     text-align:center;
     padding:$base-spacing * 2 $base-spacing;
     background:rgba(#143470, .7);
