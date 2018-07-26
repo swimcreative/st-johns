@@ -602,6 +602,19 @@ stjohns.academicsNav = function() {
       });
 
 
+      jQuery(document).ready(function() {
+    setTimeout(function() {
+        jQuery('.simcal-nav-button').removeAttr('disabled');
+   }, 1000);
+   $(window).ajaxComplete(function() {
+        setTimeout(function() {
+            jQuery('.simcal-nav-button').removeAttr('disabled');
+        }, 500);
+
+    });
+});
+
+
 }
 
 
